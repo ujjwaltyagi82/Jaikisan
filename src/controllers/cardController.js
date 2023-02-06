@@ -1,16 +1,16 @@
 const cardModels= require("../models/cardModel")
+const customerModel = require('../models/customerModel')
 
 const createCard = async function(req,res){
- 
+    
     let data= req.body
 
     let Number = await cardModels.find().count()
     data.cardNumber="C00"+Number
-
+   
     let datacreate= await cardModels.create(data)
 
-    res.send({msg:datacreate})
-
+    res.status(201).send({msg:datacreate})
 
 }
 
@@ -18,7 +18,7 @@ const getCard = async function(req,res){
 
  let data = await cardModels.find()
 
- res.send({msg:data})
+ res.status(200).send({msg:data})
 
 
 }

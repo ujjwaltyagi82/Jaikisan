@@ -15,7 +15,10 @@ const cardSchema= new mongoose.Schema({
          Default: "ACTIVE"
         },
     vision: String,
-    customerID : String
+    customerID : {
+     type : String,
+     ref : "customer"
+    }
 
 })
 
